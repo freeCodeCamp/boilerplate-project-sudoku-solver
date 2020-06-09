@@ -1,5 +1,5 @@
 const textArea = document.getElementById('text-input');
-// import { puzzlesAndSolutions } from './puzzle-strings./js';
+// import { puzzlesAndSolutions } from './puzzle-strings.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Load a simple puzzle into the text area
