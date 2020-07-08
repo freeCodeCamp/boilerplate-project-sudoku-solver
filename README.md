@@ -1,6 +1,8 @@
 **freeCodeCamp** - Quality Assurance 4: Sudoku Solver
 ------
 
+[![Run on Repl.it](https://repl.it/badge/github/freeCodeCamp/boilerplate-project-sudoku-solver)](https://repl.it/github/freeCodeCamp/boilerplate-project-sudoku-solver)
+
 ### User stories:
 
 1.  I can enter a sudoku puzzle by filling in the text area with either a number or period (.) to represent an empty cell. 
@@ -18,7 +20,7 @@
 
 ### Testing and additional notes
 
-* To run the tests on Glitch, set NODE_ENV to `test` without quotes.
-* To run the tests in the console, use the command `npm run test`. To open the Glitch console, first click "Tools" in the bottom left corner and then click "Terminal".
+* To run the tests on Repl.it, set NODE_ENV to test without quotes in the .env file.
+* To run the tests in the console, use the command npm run test. To open the Repl.it console, press Ctrl+Shift+P (Cmd if on a Mac) and type "open shell".
 * All logic can go into `public/sudoku-solver.js`.
 * Create all of the unit/functional tests in `tests/1_unit-tests.js` and `tests/2_functional-tests.js`.
