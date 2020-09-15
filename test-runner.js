@@ -33,7 +33,7 @@ var Mocha = require('mocha'),
     path = require('path');
     require("@babel/register");
 
-var mocha = new Mocha();
+var mocha = new Mocha({ timeout: 5000 });
 var testDir = './tests'
 
 
