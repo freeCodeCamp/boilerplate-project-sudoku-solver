@@ -41,7 +41,7 @@ td {
   padding: 0.3em;
 }
 
-input[type="text"] {
+input[type="text"]:not(.checker) {
   border: 0px;
   width: 2em;
   height: 2em;
