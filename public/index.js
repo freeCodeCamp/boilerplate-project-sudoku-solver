@@ -19,10 +19,10 @@ function fillpuzzle(data) {
     let rowLetter = String.fromCharCode('A'.charCodeAt(0) + Math.floor(i / 9));
     let col = (i % 9) + 1; 
     if (!data[i] || data[i] === ".") {
-      document.getElementById(rowLetter + col).value = " ";
+      document.getElementsByClassName(rowLetter + col)[0].innerText = " ";
       continue;
     }
-    document.getElementById(rowLetter + col).value = data[i];
+    document.getElementsByClassName(rowLetter + col)[0].innerText = data[i];
   }
   return;
 }
