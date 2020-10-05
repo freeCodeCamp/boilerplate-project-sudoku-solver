@@ -108,7 +108,7 @@ suite('Functional Tests', () => {
       
     })
 
-    test('Invalid Value' done => {
+    test('Invalid Value', done => {
       const error = { error: 'Invalid value' };
     });
 
