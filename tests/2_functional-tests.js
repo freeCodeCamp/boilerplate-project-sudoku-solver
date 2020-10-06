@@ -7,9 +7,11 @@
 */
 
 const chai = require("chai");
+const chaiHttp = require('chai-http');
 const assert = chai.assert;
+const server = require('../server');
 
-const Solver = require('../controllers/sudoku-solver.js');
+chai.use(chaiHttp);
 
 suite('Functional Tests', () => {
   suite('POST to /api/solve', () => {
@@ -58,8 +60,8 @@ suite('Functional Tests', () => {
 
     test('All fields filled in correctly, invalid placement, single conflict', done => {
       const input = "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6.."
-      const coordinate = "A1";
-      const value = "9";
+      const coordinate = "A2";
+      const value = "1";
       const status = {valid: false, conflict: [ 'row' ]};
 
       //done()

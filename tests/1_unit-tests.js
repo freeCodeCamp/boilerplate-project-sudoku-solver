@@ -10,8 +10,14 @@ const chai = require('chai');
 const assert = chai.assert;
 
 const Solver = require('../controllers/sudoku-solver.js');
+let solver;
 
 suite('UnitTests', () => {
+  suiteSetup(done => {
+    solver = new Solver();
+    done();
+  });
+
   suite('Function validate()', () => {
     test('Valid Characters, length of 81', (done) => {
       const input = '..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..';
@@ -23,6 +29,7 @@ suite('UnitTests', () => {
     // as valid input for the puzzle grid
     test('Invalid characters (anything other than "1-9" or "."") are not accepted', (done) => {
       const input = '..X..5.1.85.4....2432.HI...1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..';
+      const error = "Invalid characters in puzzle";
 
       // done();
     });
