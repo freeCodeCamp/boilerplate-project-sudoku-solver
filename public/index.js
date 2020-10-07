@@ -46,7 +46,7 @@ async function getSolved() {
 }
 
 async function getChecked() {
-  const stuff = {"puzzle": textArea.value, "coord": coordInput.value, "val": valInput.value}
+  const stuff = {"puzzle": textArea.value, "coordinate": coordInput.value, "value": valInput.value}
     const data = await fetch("/api/check", {
     method: "POST",
     headers: {
