@@ -24,3 +24,4 @@
 * To run the tests in the console, use the command npm run test. To open the Repl.it console, press Ctrl+Shift+P (Cmd if on a Mac) and type "open shell".
 * All logic can go into `public/sudoku-solver.js`.
 * Create all of the unit/functional tests in `tests/1_unit-tests.js` and `tests/2_functional-tests.js`.
+* Do use this at your own risk and contact the developer for any issue
