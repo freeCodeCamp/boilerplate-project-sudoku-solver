@@ -1,5 +1,4 @@
 class SudokuSolver {
-  //if string length is < 81, return "You too short man"
 
   validate(puzzleString) {
   }
