@@ -70,6 +70,8 @@ td {
   width: 2em;
   height: 2em;
   text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 0;
 }
 
 .xAxisLegend tr td:nth-of-type(3n) {
