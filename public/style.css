@@ -33,7 +33,6 @@ textarea {
 }
 
 #sudoku-grid {
-  margin-left: 10px;
   text-align: center;
   display: inline;
 }
