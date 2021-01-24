@@ -9,6 +9,7 @@ code {
 
 .form-container {
   max-width: 95%;
+  align-self: flex-start;
 }
 
 textarea {
@@ -25,8 +26,13 @@ textarea {
   margin-left: 10px;
 }
 
-#sudoku-grid {
+#sudoku-grid-container {
+  display: flex;
+  flex-direction: row;
   margin-left: 20px;
+}
+
+#sudoku-grid {
   text-align: center;
   display: inline;
 }
@@ -39,6 +45,37 @@ textarea {
 td {
   border: 1px solid;
   padding: 0.3em;
+}
+
+.yAxisLegend {
+  margin-top: 50px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.yAxisLegend tr td {
+  border: 1px solid rgba(0,0,0,0);
+  width: 2em;
+  height: 1.95em;
+}
+
+.xAxisLegend {
+  border: 3px solid rgba(0,0,0,0);
+  border-spacing: 0;
+  font-weight: bold;
+}
+
+.xAxisLegend tr td {
+  border: 1px solid rgba(0,0,0,0);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 0;
+}
+
+.xAxisLegend tr td:nth-of-type(3n) {
+  border-right: 3px solid rgba(0,0,0,0);
 }
 
 .sudoku-input {
@@ -62,6 +99,6 @@ td {
   }
 
   .form-container {
-    align-self: flex-end;
+    align-self: center;
   }
 }
