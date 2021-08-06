@@ -39,7 +39,9 @@ class SudokuSolver {
     if (grid[row - 1][col - 1] !== 0) return false;
 
     for (let i = 0; i < 9; i++) {
-      if (grid[row - 1][i] == value) return false;
+      // allow if same spot
+      let isCol = i == col - 1;
+      if (grid[row - 1][i] == value && !isCol) return false;
     }
 
     return true;
@@ -52,7 +54,9 @@ class SudokuSolver {
     if (grid[row - 1][col - 1] !== 0) return false;
 
     for (let i = 0; i < 9; i++) {
-      if (grid[i][col - 1] == value) return false;
+      // allow if same spot
+      let isRow = i == row - 1;
+      if (grid[i][col - 1] == value && !isRow) return false;
     }
 
     return true;
@@ -67,9 +71,14 @@ class SudokuSolver {
     let startRow = row - row % 3,
       startCol = col - col % 3;
 
-    for (let i = 0; i < 3; i++)
-      for (let j = 0; j < 3; j++)
-        if (grid[i + startRow][j + startCol] == value) return false;
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        // allow if same spot
+        let isRow = i + startRow == row - 1;
+        let isCol = j + startCol == col - 1;
+        if (grid[i + startRow][j + startCol] == value && !isRow && !isCol) return false;
+      }
+    }
 
     return true;
   }
@@ -102,18 +111,22 @@ class SudokuSolver {
 
   isSafe(grid, row, col, num) {
 
-    for (let x = 0; x < 9; x++)
+    for (let x = 0; x < 9; x++) {
       if (grid[row][x] == num) return false;
+    }
 
-    for (let x = 0; x < 9; x++)
+    for (let x = 0; x < 9; x++) {
       if (grid[x][col] == num) return false;
+    }
 
     let startRow = row - row % 3,
       startCol = col - col % 3;
 
-    for (let i = 0; i < 3; i++)
-      for(let j = 0; j < 3; j++)
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
         if (grid[i + startRow][j + startCol] == num) return false;
+      }
+    }
 
     return true;
   }
