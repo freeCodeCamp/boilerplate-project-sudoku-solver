@@ -18,10 +18,10 @@ module.exports = function (app) {
         res.json({ error: 'Required field(s) missing' });
         return;
       }
-      if (/^[aA]^/g.test(puzzle)) {
+      if (/[^aA]/g.test(puzzle)) {
         res.json({ error: 'Invalid coordinate' });
       }
-      if (/^[0-9]^/g.test(puzzle)) {
+      if (/[^0-9]/g.test(puzzle)) {
         res.json({ error: 'Invalid value' });
         return;
       }
@@ -42,17 +42,15 @@ module.exports = function (app) {
         res.json({ error: 'Expected puzzle to be 81 characters long' });
         return;
       }
-      if (/^[0-9.]/g.test(puzzle)) {
+      if (/[^0-9.]/g.test(puzzle)) {
         res.json({ error: 'Invalid characters in puzzle' });
         return;
       }
-      if (!validate) {
-        let solvedString = solve(puzzle);
-        if (!solvedString) {
-          res.json({ error: 'Puzzle cannot be solved' });
-        } else {
-          res.json({ solution: solvedString });
-        }
+      let solvedString = solver.solve(puzzle);
+      if (!solvedString) {
+        res.json({ error: 'Puzzle cannot be solved' });
+      } else {
+        res.json({ solution: solvedString });
       }
-    });
+      });
 };
