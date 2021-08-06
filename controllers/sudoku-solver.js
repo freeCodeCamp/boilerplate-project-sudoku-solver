@@ -36,10 +36,9 @@ class SudokuSolver {
     let grid = this.stringToGrid(puzzleString);
     row = this.letterToNumber(row);
 
-    if (grid[row - 1][col - 1] !== 0) return false;
+    if (grid[row - 1][col - 1] == value) return true;
 
     for (let i = 0; i < 9; i++) {
-      // allow if same spot
       if (grid[row - 1][i] == value) return false;
     }
 
@@ -50,10 +49,9 @@ class SudokuSolver {
     let grid = this.stringToGrid(puzzleString);
     row = this.letterToNumber(row);
 
-    if (grid[row - 1][col - 1] !== 0) return false;
+    if (grid[row - 1][col - 1] == value) return true;
 
     for (let i = 0; i < 9; i++) {
-      // allow if same spot
       if (grid[i][col - 1] == value) return false;
     }
 
@@ -64,14 +62,13 @@ class SudokuSolver {
     let grid = this.stringToGrid(puzzleString);
     row = this.letterToNumber(row);
 
-    if (grid[row - 1][col - 1] !== 0) return false;
+    if (grid[row - 1][col - 1] == value) return true;
 
     let startRow = row - row % 3,
       startCol = col - col % 3;
 
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
-        // allow if same spot
         if (grid[i + startRow][j + startCol] == value) return false;
       }
     }
