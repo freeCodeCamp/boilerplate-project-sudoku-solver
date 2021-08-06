@@ -39,7 +39,7 @@ class SudokuSolver {
     if (grid[row - 1][col - 1] !== 0) return false;
 
     for (let i = 0; i < 9; i++) {
-      if (grid[row - 1][i] !== value) return false;
+      if (grid[row - 1][i] == value) return false;
     }
 
     return true;
@@ -52,7 +52,7 @@ class SudokuSolver {
     if (grid[row - 1][col - 1] !== 0) return false;
 
     for (let i = 0; i < 9; i++) {
-      if (grid[i][col - 1] !== value) return false;
+      if (grid[i][col - 1] == value) return false;
     }
 
     return true;
