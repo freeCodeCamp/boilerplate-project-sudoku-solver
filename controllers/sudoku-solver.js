@@ -36,14 +36,10 @@ class SudokuSolver {
     let grid = this.stringToGrid(puzzleString);
     row = this.letterToNumber(row);
 
-    if (grid[row - 1][col - 1] !== 0) {
-      return false;
-    }
+    if (grid[row - 1][col - 1] !== 0) return false;
 
     for (let i = 0; i < 9; i++) {
-      if (grid[row - 1][i] == value) {
-        return false;
-      }
+      if (grid[row - 1][i] !== value) return false;
     }
 
     return true;
@@ -53,14 +49,10 @@ class SudokuSolver {
     let grid = this.stringToGrid(puzzleString);
     row = this.letterToNumber(row);
 
-    if (grid[row - 1][col - 1] !== 0) {
-      return false;
-    }
+    if (grid[row - 1][col - 1] !== 0) return false;
 
     for (let i = 0; i < 9; i++) {
-      if (grid[i][col - 1] == value) {
-        return false;
-      }
+      if (grid[i][col - 1] !== value) return false;
     }
 
     return true;
@@ -158,9 +150,7 @@ class SudokuSolver {
   }
 
   solve(puzzleString) {
-    console.log(puzzleString);
     let grid = this.stringToGrid(puzzleString);
-    console.log(grid);
     let solved = this.solveSudoku(grid, 0, 0);
     if (!solved) return false;
 

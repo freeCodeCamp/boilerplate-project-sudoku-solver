@@ -14,8 +14,8 @@ module.exports = function (app) {
         res.json({ error: 'Required field(s) missing' });
         return;
       }
-      const row = coordinate.split("")[0];
-      const col = coordinate.split("")[1];
+      const row = coordinate.split('')[0];
+      const col = coordinate.split('')[1];
       if (
         coordinate.length !== 2 ||
         !/[a-i]/i.test(row) ||
@@ -32,7 +32,7 @@ module.exports = function (app) {
         res.json({ error: 'Expected puzzle to be 81 characters long' });
         return;
       }
-      if (!/[0-9]/.test(puzzle)) {
+      if (/[^0-9.]/.test(puzzle)) {
         res.json({ error: 'Invalid characters in puzzle' });
         return;
       }
