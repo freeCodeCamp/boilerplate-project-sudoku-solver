@@ -40,8 +40,7 @@ class SudokuSolver {
 
     for (let i = 0; i < 9; i++) {
       // allow if same spot
-      let isCol = i == col - 1;
-      if (grid[row - 1][i] == value && !isCol) return false;
+      if (grid[row - 1][i] == value) return false;
     }
 
     return true;
@@ -55,8 +54,7 @@ class SudokuSolver {
 
     for (let i = 0; i < 9; i++) {
       // allow if same spot
-      let isRow = i == row - 1;
-      if (grid[i][col - 1] == value && !isRow) return false;
+      if (grid[i][col - 1] == value) return false;
     }
 
     return true;
@@ -74,9 +72,7 @@ class SudokuSolver {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         // allow if same spot
-        let isRow = i + startRow == row - 1;
-        let isCol = j + startCol == col - 1;
-        if (grid[i + startRow][j + startCol] == value && !isRow && !isCol) return false;
+        if (grid[i + startRow][j + startCol] == value) return false;
       }
     }
 
