@@ -16,7 +16,7 @@ class SudokuSolver {
   }
 
   checkCharacters(puzzle) {
-    return /^[1-9.]*$/g.test(puzzle);
+    return /^[1-9.]+$/g.test(puzzle);
   }
 
   letterToNumber(row) {
