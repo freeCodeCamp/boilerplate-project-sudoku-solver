@@ -161,6 +161,7 @@ class SudokuSolver {
     let solved = this.solveSudoku(grid, 0, 0);
     if (!solved) return false;
 
+    let solvedString = this.gridToString(solved);
     return solvedString;
   }
 
