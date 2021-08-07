@@ -85,7 +85,7 @@ suite('Functional Tests', () => {
   test("Check a puzzle placement with single placement conflict: POST request to /api/check", function (done) {
     chai.request(server)
       .post('/api/check')
-      .send({ puzzle: validPuzzle, coordinate: "B2", value: "1" })
+      .send({ puzzle: validPuzzle, coordinate: "B2", value: "9" })
       .end((err, res) => {
         assert.equal(res.status, 200);
         assert.equal(res.body.conflict.length, 1);
@@ -96,11 +96,11 @@ suite('Functional Tests', () => {
   test("Check a puzzle placement with multiple placement conflicts: POST request to /api/check", function (done) {
     chai.request(server)
       .post('/api/check')
-      .send({ puzzle: validPuzzle, coordinate: "B2", value: "6" })
+      .send({ puzzle: validPuzzle, coordinate: "B2", value: "1" })
       .end((err, res) => {
         assert.equal(res.status, 200);
         assert.equal(res.body.valid, false);
-        assert.equal(res.body.conflict.length, 1);
+        assert.equal(res.body.conflict.length, 2);
         done();
       })
   })
@@ -108,11 +108,11 @@ suite('Functional Tests', () => {
   test("Check a puzzle placement with all placement conflicts: POST request to /api/check", function (done) {
     chai.request(server)
       .post('/api/check')
-      .send({ puzzle: validPuzzle, coordinate: "B2", value: "9" })
+      .send({ puzzle: validPuzzle, coordinate: "B2", value: "6" })
       .end((err, res) => {
         assert.equal(res.status, 200);
         assert.equal(res.body.valid, false);
-        assert.equal(res.body.conflict.length, 2);
+        assert.equal(res.body.conflict.length, 3);
         done();
       })
   })
