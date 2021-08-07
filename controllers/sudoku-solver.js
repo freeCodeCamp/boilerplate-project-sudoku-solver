@@ -99,6 +99,7 @@ class SudokuSolver {
 
       grid[row][col] = 0;
     }
+
     return false;
   }
 
@@ -160,7 +161,6 @@ class SudokuSolver {
     let solved = this.solveSudoku(grid, 0, 0);
     if (!solved) return false;
 
-    let solvedString = this.gridToString(solved);
     return solvedString;
   }
 
@@ -168,3 +168,4 @@ class SudokuSolver {
 
 
 module.exports = SudokuSolver;
+

@@ -54,6 +54,7 @@ module.exports = function (app) {
         if (!validReg) {
           conflicts.push("region");
         }
+
         res.json({ valid: false, conflict: conflicts });
       }
 
