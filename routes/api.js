@@ -22,15 +22,19 @@ module.exports = function (app) {
 
       if (!validCoordinate) {
         res.json({ error: 'Invalid coordinate' });
+        return;
       }
       if (!validValue) {
         res.json({ error: 'Invalid value' });
+        return;
       }
       if (!validLength) {
         res.json({ error: 'Expected puzzle to be 81 characters long' });
+        return;
       }
       if (!validCharacters) {
         res.json({ error: 'Invalid characters in puzzle' });
+        return;
       }
 
       let row = coordinate.split('')[0];

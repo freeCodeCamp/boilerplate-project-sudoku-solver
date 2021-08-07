@@ -3,9 +3,9 @@ const SudokuSolver = require('../controllers/sudoku-solver.js');
 const assert = chai.assert;
 
 const Solver = require('../controllers/sudoku-solver.js');
-let solver = new SudokuSolver();
+let solver = new Solver();
 
-const validPuzzle = "769..5.1.8514....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
+const validPuzzle = "..9..5.1.8514....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
 const solution =    "769235418851496372432178956174569283395842761628713549283657194516924837947381625";
 
 suite('UnitTests', () => {
