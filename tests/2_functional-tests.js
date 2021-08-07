@@ -88,7 +88,6 @@ suite('Functional Tests', () => {
       .send({ puzzle: validPuzzle, coordinate: "B2", value: "1" })
       .end((err, res) => {
         assert.equal(res.status, 200);
-        assert.equal(res.body.valid, false);
         assert.equal(res.body.conflict.length, 1);
         done();
       })
@@ -101,7 +100,7 @@ suite('Functional Tests', () => {
       .end((err, res) => {
         assert.equal(res.status, 200);
         assert.equal(res.body.valid, false);
-        assert.equal(res.body.conflict.length, 2);
+        assert.equal(res.body.conflict.length, 1);
         done();
       })
   })
@@ -113,7 +112,7 @@ suite('Functional Tests', () => {
       .end((err, res) => {
         assert.equal(res.status, 200);
         assert.equal(res.body.valid, false);
-        assert.equal(res.body.conflict.length, 3);
+        assert.equal(res.body.conflict.length, 2);
         done();
       })
   })
