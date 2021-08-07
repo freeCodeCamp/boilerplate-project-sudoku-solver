@@ -14,29 +14,27 @@ module.exports = function (app) {
         res.json({ error: 'Required field(s) missing' });
         return;
       }
-      const row = coordinate.split('')[0];
-      const col = coordinate.split('')[1];
-      if (
-        coordinate.length !== 2 ||
-        !/[a-i]/i.test(row) ||
-        !/[1-9]/.test(col)
-      ) {
+
+      let validCoordinate = solver.checkCoordinate(coordinate);
+      let validValue = solver.checkValue(value);
+      let validLength = solver.checkLength(puzzle);
+      let validCharacters = solver.checkCharacters(puzzle);
+
+      if (!validCoordinate) {
         res.json({ error: 'Invalid coordinate' });
-        return;
       }
-      if (!/[1-9]/.test(value)) {
+      if (!validValue) {
         res.json({ error: 'Invalid value' });
-        return;
       }
-      if (puzzle.length != 81) {
+      if (!validLength) {
         res.json({ error: 'Expected puzzle to be 81 characters long' });
-        return;
       }
-      if (/[^0-9.]/.test(puzzle)) {
+      if (!validCharacters) {
         res.json({ error: 'Invalid characters in puzzle' });
-        return;
       }
 
+      let row = coordinate.split('')[0];
+      let col = coordinate.split('')[1];
       let validRow = solver.checkRowPlacement(puzzle, row, col, value);
       let validCol = solver.checkColPlacement(puzzle, row, col, value);
       let validReg = solver.checkRegPlacement(puzzle, row, col, value);
@@ -76,12 +74,12 @@ module.exports = function (app) {
         return;
       }
 
-      let solvedString = solver.solve(puzzle);
-      if (!solvedString) {
+      let solution = solver.solve(puzzle);
+      if (!solution) {
         res.json({ error: 'Puzzle cannot be solved' });
         return;
       }
 
-      res.json({ solution: solvedString });
+      res.json({ solution });
     });
 };

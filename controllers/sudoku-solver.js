@@ -3,8 +3,20 @@ class SudokuSolver {
 
   // CHECK SUDOKU
 
-  validate(puzzle) {
+  checkCoordinate(coordinate) {
+    return /^[a-i][1-9]$/i.test(coordinate);
+  }
 
+  checkValue(value) {
+    return /^[1-9]$/.test(+value);
+  }
+
+  checkLength(puzzle) {
+    return puzzle.length === 81;
+  }
+
+  checkCharacters(puzzle) {
+    return /^[1-9.]*$/g.test(puzzle);
   }
 
   letterToNumber(row) {
@@ -158,11 +170,11 @@ class SudokuSolver {
 
   solve(puzzleString) {
     let grid = this.stringToGrid(puzzleString);
-    let solved = this.solveSudoku(grid, 0, 0);
-    if (!solved) return false;
+    let solution = this.solveSudoku(grid, 0, 0);
+    if (!solution) return false;
 
-    let solvedString = this.gridToString(solved);
-    return solvedString;
+    let result = this.gridToString(solution);
+    return result;
   }
 
 }

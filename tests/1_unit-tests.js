@@ -14,19 +14,16 @@ suite('UnitTests', () => {
 
     test("Logic handles a valid puzzle string of 81 characters", function done() {
       assert.equal(solver.solve(validPuzzle), solution);
-      done();
     })
 
     test("Logic handles a puzzle string with invalid characters (not 1-9 or .)", function done() {
-      const invalidPuzzle = "x69..5.1.8514....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
-      assert.equal(solver.solve(invalidPuzzle), false);
-      done();
+      const invalidPuzzle = "069..5.1.8514....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
+      assert.equal(solver.checkCharacters(invalidPuzzle), false);
     })
 
     test("Logic handles a puzzle string that is not 81 characters in length", function done() {
       const invalidPuzzle = "69..5.1.8514....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..";
-      assert.equal(solver.solve(invalidPuzzle), false);
-      done();
+      assert.equal(solver.checkLength(invalidPuzzle), false);
     })
 
     test("Logic handles a valid row placement", function done() {
@@ -58,7 +55,7 @@ suite('UnitTests', () => {
     })
 
     test("Invalid puzzle strings fail the solver", function done() {
-      const invalidPuzzle = "169235418851496372432178956174569283395842761628713549283657194516924837947381625";
+      const invalidPuzzle = "69235418851496372432178956174569283395842761628713549283657194516924837947381625";
       assert.equal(solver.solve(invalidPuzzle), false);
     })
 
