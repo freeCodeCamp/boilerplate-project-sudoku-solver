@@ -2,7 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 const {SudokuHelper} = require('../utils/sudoku-helper');
 const { PuzzleGroup } = require('../utils/enums');
-const {getGoodPuzzles, badPuzzles} = require('./unit-test-helper');
+const {getGoodPuzzles, badPuzzles} = require('./unit-test-data');
 let uTstObj = new SudokuHelper();
 
 suite('SudokuHelper Unit Tests', () => {

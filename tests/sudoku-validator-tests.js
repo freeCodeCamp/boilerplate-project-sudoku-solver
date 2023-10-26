@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 const {SudokuValidator} = require('../utils/sudoku-validator');
-const {getGoodPuzzles} = require('./unit-test-helper')
+const {getGoodPuzzles} = require('./unit-test-data')
 let uTstObj = new SudokuValidator();
 
 suite('SudokuValidator Unit Tests', () => {
