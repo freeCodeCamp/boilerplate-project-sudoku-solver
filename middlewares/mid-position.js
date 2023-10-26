@@ -5,7 +5,7 @@ exports.mid_position = (req, res, next) => {
     const value = req.body.value;
     const coordinate = req.body.coordinate;
     const coords = sdh.formatCoordinate(coordinate)
-    if (value === '' || coordinate === '') {
+    if (!Ut.isStrNotEmpty(value) || !Ut.isStrNotEmpty(coordinate)) {
         res.json({ "error": "Required field(s) missing" });
     }
     if (!Ut.isObject(coords)) {

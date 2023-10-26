@@ -1,9 +1,10 @@
+const Ut = require('../utils/utils');
 const { SudokuHelper } = require('../utils/sudoku-helper');
 const sdh = new SudokuHelper();
 
 exports.mid_puzzle = (req, res, next) => {
   const puzzle = req.body.puzzle;
-  if (puzzle === ''){
+  if (!Ut.isStrNotEmpty(puzzle)){
     res.json({ "error": "Required field missing" });
   }
   else if (puzzle.length != 81) {

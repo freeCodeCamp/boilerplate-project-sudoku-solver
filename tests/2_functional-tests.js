@@ -31,7 +31,7 @@ suite('Functional Tests', () => {
                 .post('/api/solve')
                 .set('content-type', 'application/x-www-form-urlencoded')
                 .send({
-                    puzzle: ''
+                    bad: ''
                 })
                 .end(function (err, res) {
                     assert.equal(res.status, 200);
