@@ -2,6 +2,7 @@ const Ut = require('../utils/utils');
 const { SudokuHelper } = require('../utils/sudoku-helper');
 const sdh = new SudokuHelper();
 exports.mid_position = (req, res, next) => {
+    const puzzle = req.body.puzzle;
     const value = req.body.value;
     const coordinate = req.body.coordinate;
     const coords = sdh.formatCoordinate(coordinate)
