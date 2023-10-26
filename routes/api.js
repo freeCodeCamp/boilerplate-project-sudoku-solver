@@ -10,7 +10,7 @@ module.exports = function (app) {
   let solver = new SudokuSolver();
 
   app.route('/api/check')
-    .post([mid_puzzle, mid_position],
+    .post([mid_position, mid_puzzle],
       (req, res) => {
         const puzzle = req.body.puzzle;
         const coords = res.locals.coords;
